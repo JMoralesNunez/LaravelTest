@@ -14,7 +14,7 @@
         <button class="btn btn-danger" type="submit">Cerrar sesión</button>
     </form>
     <div class="container">
-        <button class="btn btn-success">Crear</button>
+        <a href="{{ route('users.create') }}" class="btn btn-success">Crear</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -35,13 +35,18 @@
                     <td>
                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-info btn-sm">Detalles</a>
                         <a href="#" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+                        <form action="{{ route('users.destroy', $user->id) }}" method="post" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    {{ $users->links() }}
 </body>
 
 </html>

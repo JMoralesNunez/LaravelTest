@@ -20,4 +20,8 @@ Route::middleware([
 
     Route::get('users', [UsersController::class, 'index'])->name('users.index');
     Route::get('users/{id}', [UsersController::class, 'show'])->name('users.show');
+    Route::get('users/create/new', [UsersController::class, 'create'])->name('users.create');
+    Route::post('users/store', [UsersController::class,'store'])->name('users.store');
+    Route::delete('users/delete/{id}', [UsersController::class,'destroy'])->name('users.destroy');
+
 });
