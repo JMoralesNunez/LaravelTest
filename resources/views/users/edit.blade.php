@@ -13,21 +13,19 @@
             <div class="card-header">
                 <h1>Editar Usuario</h1>
             </div>
-            <div class="card-body">
+            <form action="{{ route('users.update', $user->id) }}" method="post" class="card-body">
+                @csrf
                 <div class="mt-4">
                     <label for="">Nombre</label>
-                    <input type="text" class="form-control" value="{{ $user->name }}">
+                    <input type="text" class="form-control" name="name" value="{{ $user->name }}">
                 </div>
                 <div class="mt-4">
                     <label for="">Correo</label>
-                    <input type="email" class="form-control" value="{{ $user->email }}">
+                    <input type="email" class="form-control" name="email" value="{{ $user->email }}">
                 </div>
-                <div class="mt-4">
-                    <label for="">Fecha de creación</label>
-                    <input type="date-time" class="form-control" value="{{ $user->created_at }}">
-                </div>
-                <a href="{{ route('users.index') }}">Volver</a>
-            </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+            <a href="{{ route('users.index') }}">Volver</a>
         </div>
     </div>
 </body>

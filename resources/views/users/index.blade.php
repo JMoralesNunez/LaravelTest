@@ -34,7 +34,7 @@
                     <td>{{ $user->created_at }}</td>
                     <td>
                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-info btn-sm">Detalles</a>
-                        <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">Editar</a>
                         <form action="{{ route('users.destroy', $user->id) }}" method="post" style="display:inline;">
                             @csrf
                             @method('DELETE')
